@@ -1,0 +1,76 @@
+﻿@model IEnumerable<PROJETO_FUP_Brasil.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <a asp-action="Create">
+        <button class="btn-criar roboto rounded-pill border-0">CADASTRAR</button>
+    </a>
+
+<table class="table roboto text-uppercase">
+    <thead>
+        <tr>
+            <th class="font-tabela">
+                Nome
+            </th>
+            @*<th  class="font-tabela">
+               RG
+            </th>
+            <th  class="font-tabela">
+                CPF
+            </th>*@
+            <th  class="font-tabela">
+                Nascimento
+            </th>
+            <th  class="font-tabela">
+                Contratação
+            </th>
+            <th  class="font-tabela">
+                Demissão
+            </th>
+            <th  class="font-tabela">
+               Genero
+            </th>
+            @*<th  class="font-tabela">
+               Salário
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="roboto text-uppercase">
+            <td  class="font-tabela">
+                @Html.DisplayFor(modelItem => item.NomeFuncionario)
+            </td>
+            @*<td class="font-tabela">
+                @Html.DisplayFor(modelItem => item.Rg)
+            </td>
+            <td  class="font-tabela">
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>*@
+            <td class="font-tabela">
+                @Html.DisplayFor(modelItem => item.Datanascimento)
+            </td>
+            <td class="font-tabela">
+                @Html.DisplayFor(modelItem => item.DataContratacao)
+            </td>
+            <td  class="font-tabela">
+                @Html.DisplayFor(modelItem => item.DataDemissao)
+            </td>
+            <td class="font-tabela">
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            @*<td  class="font-tabela">
+                @Html.DisplayFor(modelItem => item.SalarioFuncionario)
+            </td>*@
+            <td  class="font-tabela">
+                <a asp-action="Edit" asp-route-id="@item.FuncionarioId" class="button-geral">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.FuncionarioId" class="button-geral">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.FuncionarioId" class="button-geral">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
